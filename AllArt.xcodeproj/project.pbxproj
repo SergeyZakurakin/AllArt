@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DC7D79862D18C87300D5A1BC /* AllArtApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7D79822D18C87300D5A1BC /* AllArtApp.swift */; };
-		DC7D79872D18C87300D5A1BC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7D79842D18C87300D5A1BC /* ContentView.swift */; };
+		DC7D79872D18C87300D5A1BC /* AllArtView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7D79842D18C87300D5A1BC /* AllArtView.swift */; };
 		DC7D79882D18C87300D5A1BC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC7D797F2D18C87300D5A1BC /* Preview Assets.xcassets */; };
 		DC7D79892D18C87300D5A1BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC7D79832D18C87300D5A1BC /* Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -19,7 +19,7 @@
 		DC7D79812D18C87300D5A1BC /* AllArt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AllArt.entitlements; sourceTree = "<group>"; };
 		DC7D79822D18C87300D5A1BC /* AllArtApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllArtApp.swift; sourceTree = "<group>"; };
 		DC7D79832D18C87300D5A1BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		DC7D79842D18C87300D5A1BC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		DC7D79842D18C87300D5A1BC /* AllArtView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllArtView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,9 +64,17 @@
 				DC7D79812D18C87300D5A1BC /* AllArt.entitlements */,
 				DC7D79822D18C87300D5A1BC /* AllArtApp.swift */,
 				DC7D79832D18C87300D5A1BC /* Assets.xcassets */,
-				DC7D79842D18C87300D5A1BC /* ContentView.swift */,
+				DC7D798A2D1906B200D5A1BC /* View */,
 			);
 			path = AllArt;
+			sourceTree = "<group>";
+		};
+		DC7D798A2D1906B200D5A1BC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DC7D79842D18C87300D5A1BC /* AllArtView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,7 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC7D79862D18C87300D5A1BC /* AllArtApp.swift in Sources */,
-				DC7D79872D18C87300D5A1BC /* ContentView.swift in Sources */,
+				DC7D79872D18C87300D5A1BC /* AllArtView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
