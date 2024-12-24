@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@MainActor
 class AllArtViewModel: ObservableObject {
     
     @Published var artworks: [Datum] = []
@@ -30,6 +31,13 @@ class AllArtViewModel: ObservableObject {
             
         }
     }
+    
+    func getImageURL(imageId: String) -> URL? {
+        let baseUrl = "https://www.artic.edu/iiif/2/"
+        let imageSize = "full/843,/0/default.jpg"
+        return URL(string: "\(baseUrl)\(imageId)/\(imageSize)")
+//        return "\(baseUrl)\(imageId)/\(imageSize)"
+    }
 }
 
 struct AllArtView: View {
@@ -41,10 +49,11 @@ struct AllArtView: View {
         ZStack {
             Color.indigo.opacity(0.5)
                 .ignoresSafeArea()
-            VStack {
+            ScrollView() {
                 ForEach(viewModel.artworks) { artwork in
-                    AllArtCard(cardItem: artwork)
+                    AllArtCard(cardItem: artwork, imageURL: viewModel.getImageURL(imageId: artwork.image_id!))
                 }
+                
             }
             .onAppear {
                 viewModel.fetchArtworks()
@@ -62,12 +71,29 @@ struct AllArtView: View {
 struct AllArtCard: View {
     
     var cardItem: Datum
+    var imageURL: URL?
+    
     
     var body: some View {
-        
-        HStack {
-            Text(cardItem.title)
+        VStack(spacing: 20) {
+            if let imageURL {
+                AsyncImage(url: imageURL) { image in
+                    image
+                        .resizable()
+                        .scaledToFit()
+                        
+                } placeholder: {
+                    ProgressView()
+                }
+                    Text(cardItem.title)
+                        .foregroundStyle(.white)
+                        .font(.headline)
+                Spacer()
+                
+            }
         }
+    
+        .frame(width: 300, height: 300)
     }
 }
 
@@ -115,4 +141,5 @@ struct Datum: Decodable, Identifiable {
     let artistTitle: String?
     let artistIDS: [Int]?
     let artistTitles, categoryIDS, categoryTitles, termTitles: [String]?
+    let image_id: String?
 }
